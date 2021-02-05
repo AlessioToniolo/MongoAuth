@@ -1,15 +1,17 @@
 {
-  "name": "treehouse-express-auth",
+  "name": "mongo-auth",
   "version": "1.0.0",
-  "description": "A project for learning how to add authentication to a web application.",
-  "author": "Treehouse Island, Inc.",
-  "private": true,
+  "description": "User authentication app for login sessions and app data built with MongoDB, Express.js, and Node.js",
+  "author": "Alessio Toniolo",
+  "private": false,
   "scripts": {
-    "start": "node ./app"
+    "start": "nodemon ./app"
   },
   "dependencies": {
     "body-parser": "^1.13.3",
     "express": "^4.13.4",
+    "mongoose": "^5.11.15",
+    "nodemon": "^2.0.7",
     "pug": "^2.0.0-beta2"
   },
   "license": "MIT"
