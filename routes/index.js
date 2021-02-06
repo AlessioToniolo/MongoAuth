@@ -29,7 +29,12 @@ router.post('/register', (req, res, next) => {
           req.body.favoriteBook &&
            req.body.password &&
             req.body.confirmPassword) {
-
+        // confim matching password
+        if (req.body.password !== req.body.confirmPassword) {
+            var err = new Error('Passwords do not match');
+            err.status = 400;
+            return next(err);
+        }
     } else {
         var err = new Error('All fields required.');
         err.status = 400;
