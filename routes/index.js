@@ -22,6 +22,8 @@ router.get('/register', (req, res, next) => {
   return res.render('register', { title: 'Sign Up' });
 });
 
+
+
 // GET /profile
 router.get('/profile', (req, res, next) => {
   if (!req.session.userId) {
@@ -38,6 +40,18 @@ router.get('/profile', (req, res, next) => {
       }
     });
 }); 
+
+router.get('/logout', (req, res, next) => {
+    if (req.session) {
+        req.session.destroy((err) => {
+            if (err) {
+                return next(err);
+            } else {
+                return res.redirect('/');
+            }
+        })
+    }
+})
 
 // POST /register
 router.post('/register', (req, res, next) => {

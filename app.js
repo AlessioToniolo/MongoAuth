@@ -10,6 +10,11 @@ app.use(session({
   saveUninitialized: false
 }));
 
+app.use((req, res, next) => {
+    res.locals.currentUser = req.session.userId;
+    next();
+})
+
 // mongodb connection
 mongoose.connect('mongodb://localhost:27017/bookworm', { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true});
 var db = mongoose.connection;
